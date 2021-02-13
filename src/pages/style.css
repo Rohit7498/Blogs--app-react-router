@@ -1,0 +1,29 @@
+table{
+    width: 90%;
+    margin: 5%;
+}
+button{
+    float: left;
+    margin-left: 5%;
+}
+a{
+    text-decoration: none;   
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+.pagination a {
+    color: black;
+    float: center;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination a:hover {
+    background-color: green;
+    color: white;
+  }
