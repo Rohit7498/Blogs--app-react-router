@@ -14,6 +14,7 @@ function App() {
     <Nav />
       <Switch>
         <Route path='' exact component={Home} />
+        <Route path='/' exact component={Home} />
         <Route path='/posts' exact component={AllPosts} />
         <Route path='/:id' exact component={Posts}/>
         <Route path='/posts/:id' component={PostDetails} />
