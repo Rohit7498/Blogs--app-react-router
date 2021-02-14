@@ -14,14 +14,18 @@ export default function Posts({ match }) {
     }, []);
 
     const fetchPosts = async ()=>{
+        try {
+            const data = await fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}/posts`);
+            const userPosts = await data.json();
+            
+            //console.log(Object.prototype.toString.call(posts));
+            console.log(userPosts);
+            setPosts(userPosts);
+            setFilteredPosts(userPosts);    
+        } catch (error) {
+            console.log(error);    
+        }
         
-        const data = await fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}/posts`);
-        const userPosts = await data.json();
-        
-        //console.log(Object.prototype.toString.call(posts));
-        console.log(userPosts);
-        setPosts(userPosts);
-        setFilteredPosts(userPosts);
     }
 
     const filterPosts = (e)=>{

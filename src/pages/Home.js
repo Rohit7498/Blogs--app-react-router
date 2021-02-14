@@ -27,11 +27,16 @@ export default function Home() {
     }, []);//on mount
 
     const fetchUsers = async ()=>{
-        const data = await fetch('https://jsonplaceholder.typicode.com/users');
-        const users = await data.json();
-        setUsers(users);
-        setFilteredUsers(users);
-        console.log(users);
+        try {
+            const data = await fetch('https://jsonplaceholder.typicode.com/users');
+            const users = await data.json();
+            setUsers(users);
+            setFilteredUsers(users);
+            console.log(users);    
+        } catch (error) {
+            console.log(error);    
+        }
+        
     }
     const filterUsers = (e)=>{
         let curUserText = e.target.value;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link, Redirect } from 'react-router-dom';
 import './style.css';
 
 export default function PostDetails({match}) {
@@ -15,12 +16,15 @@ export default function PostDetails({match}) {
     }, []);
 
     const fetchSpecificPost = async ()=>{
+        try {
+            const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`);
+            const singlePost = await data.json();
+            console.log(singlePost);
+            setPost(singlePost);        
+        } catch (error) {
+            console.log(error);            
+        }
         
-        const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`);
-        const singlePost = await data.json();
-        console.log(singlePost);
-        setPost(singlePost);        
-
     }
 
     const fetchComments = async ()=>{
@@ -59,6 +63,13 @@ export default function PostDetails({match}) {
             </>
         )
     }
+    const handleDelete = async ()=>{
+        const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${match.params.id}`,
+                                {method:'DELETE'});
+        console.log(data);
+        const resp = await data.json();
+        console.log(resp);
+    }
 
 
     return (
@@ -72,6 +83,7 @@ export default function PostDetails({match}) {
                 <p>{post.body}</p>
             </article>
             <button onClick={handleClick} >{!showComments ? 'Show Comments' : 'Hide Comments'}</button>
+            <Link to={`/${post.userId}`}><button onClick={handleDelete} >Delete</button></Link>
 
             
             {showComments && renderComments()}
