@@ -5,11 +5,10 @@ import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 
 
 export default function Nav() {
-    const [isDark, setDark] = useState(false);
+    const [isDark, setDark] = useState(()=>false);
 
     const toggleMode = ()=>{
-        setDark(prevState => !prevState);
-        if(isDark){
+        if(!isDark){
             document.body.style.backgroundColor='darkgray';
             document.body.style.color='white';
             
@@ -17,7 +16,7 @@ export default function Nav() {
             document.body.style.backgroundColor='white';
             document.body.style.color='black';
         }
-
+        setDark(prevDark=>!prevDark);
     }
 
     return (
@@ -36,7 +35,7 @@ export default function Nav() {
                     </Link>
                     <Button variant="contained" size="medium"  style={{backgroundColor: 'darkgreen', color:'white'}} 
                     onClick={toggleMode}>
-                        {isDark ? 'Dark Mode' : 'Light Mode'}
+                        {isDark ? 'Light Mode' : 'Dark Mode'}
                     </Button>
                 </ul>
             </nav>
