@@ -13,7 +13,6 @@ function App() {
     <Router>
     <Nav />
       <Switch>
-        <Route path='' exact component={Home} />
         <Route path='/' exact component={Home} />
         <Route path='/posts' exact component={AllPosts} />
         <Route path='/:id' exact component={Posts}/>
