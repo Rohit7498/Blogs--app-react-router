@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export default function PostDetails({match}) {
 
@@ -82,8 +84,18 @@ export default function PostDetails({match}) {
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
             </article>
-            <button onClick={handleClick} >{!showComments ? 'Show Comments' : 'Hide Comments'}</button>
-            <Link to={`/${post.userId}`}><button onClick={handleDelete} >Delete</button></Link>
+            
+            <Button variant="contained" size="medium" color="primary" onClick={handleClick}>
+                {!showComments ? 'Show Comments' : 'Hide Comments'}
+            </Button>
+            &nbsp;
+            &nbsp;
+            <Link to={`/${post.userId}`}>
+                <Button variant="contained" size="medium" color="secondary" onClick={handleDelete} startIcon={<DeleteIcon />} >
+                    Delete
+                </Button>
+            </Link>
+            
 
             
             {showComments && renderComments()}

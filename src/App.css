@@ -1,11 +1,14 @@
 .App {
   text-align: center;
 }
+
+
+
 nav {
   display: flex;
   justify-content: space-around;
-  background-color: rgb(44, 43, 43);
-  color: white;
+  background-color: green;
+  color: whitesmoke;
   align-items: center;
 }
 .nav-links{

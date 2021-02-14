@@ -1,7 +1,11 @@
 # Blogs App React / React-Router
 
-### Get All Users
-### Get Posts corresponding to each user
-### Get each post details
-### Get comments of a particular post
-
+### Functionalities
+<ul>
+    <li>Get All Users</li>
+    <li>Get All Posts</li>
+    <li>Get Posts corresponding to each user</li>
+    <li>Get each post details</li>
+    <li>Get comments of a particular post</li>
+    <li>Delete a specific post</li>
+</ul>
