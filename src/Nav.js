@@ -10,7 +10,7 @@ export default function Nav() {
     const toggleMode = ()=>{
         if(!isDark){
             document.body.style.backgroundColor='darkgray';
-            document.body.style.color='white';
+            document.body.style.color='blue';
             
         }else{
             document.body.style.backgroundColor='white';
